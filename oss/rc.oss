@@ -1,0 +1,30 @@
+#!/bin/bash
+. /etc/rc.conf
+. /etc/rc.d/functions
+
+case "$1" in
+	start)
+		echo -n "Starting Open Sound System"
+		if /usr/sbin/soundon
+		then
+			echo " [OK]"
+		else
+			echo " [FAIL]"
+		fi
+		;;
+	stop)
+		echo -n "Stopping Open Sound System"
+		if /usr/sbin/soundoff
+		then
+			echo " [OK]"
+		else
+			echo " [FAIL]"
+		fi
+		;;
+	restart)
+		$0 stop
+		$0 start
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+esac

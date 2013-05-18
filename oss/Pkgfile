@@ -1,0 +1,22 @@
+# Description:	Cross platform audio subsystem
+# URL:		http://www.opensound.com/
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on:
+
+name=oss
+version=4.2-build2007
+release=1
+
+source=(http://www.4front-tech.com/developer/sources/stable/gpl/$name-v$version-src-gpl.tar.bz2 rc.oss)
+
+build() {
+	rm -rf $name
+	mkdir $name
+	cd $name
+
+	$SRC/$name-v$version-src-gpl/configure --enable-libsalsa=NO
+	make build
+	make tarball
+	tar -C $PKG -xjf $SRC/$name/$name-*.tar.bz2
+	install -D -m 755 $SRC/rc.oss $PKG/etc/rc.d/oss
+}
