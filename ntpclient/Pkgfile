@@ -1,0 +1,16 @@
+# Description:	Small Ntp client
+# URL:		http://doolittle.icarus.com/ntpclient/
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on:
+
+name=ntpclient
+version=2010_365
+release=1
+
+source=(http://doolittle.icarus.com/${name}/${name}_${version}.tar.gz)
+
+build() {
+	cd $name-2010
+	make
+	install -D -m 755 ${name} ${PKG}/usr/bin/${name}
+}
