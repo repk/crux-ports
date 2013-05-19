@@ -1,0 +1,17 @@
+# Description:	Dynamic menu for X
+# URL:		http://tools.suckless.org/dmenu/
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on:	xorg
+
+name=dmenu
+version=4.5
+release=1
+
+source=(http://dl.suckless.org/tools/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	make
+	make DESTDIR=$PKG install
+}
+
