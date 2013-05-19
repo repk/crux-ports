@@ -1,0 +1,17 @@
+# Description:	Lightweight PDF and XPS viewer
+# URL:		http://www.mupdf.com/
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on:	xorg
+
+name=mupdf
+version=1.2
+release=1
+
+source=(http://mupdf.googlecode.com/files/$name-$version-source.zip http://mupdf.googlecode.com/files/$name-thirdparty.zip)
+
+build() {
+	cd $name-$version-source
+	make
+	make prefix=$PKG/usr install
+}
+
