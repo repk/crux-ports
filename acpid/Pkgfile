@@ -1,0 +1,18 @@
+# Description:	Configurable ACPI policy daemon
+# URL:		http://acpid.sourceforge.net/
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on:
+
+name=acpid
+version=1.0.10
+release=1
+
+source=(http://downloads.sourceforge.net/project/$name/$name/$version/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	sed -i "s|INSTPREFIX =|INSTPREFIX = ${PKG}|g" Makefile
+	make
+	make install
+}
+
