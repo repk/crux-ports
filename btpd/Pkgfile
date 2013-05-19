@@ -1,0 +1,20 @@
+# Description:	BitTorrent Protocol Daemon
+# URL:		https://github.com/btpd/btpd/wiki
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on:	OpenSSL
+
+name=btpd
+version=1
+release=1
+
+source=(http://github.com/$name/$name/archive/master.tar.gz)
+
+build() {
+	cd $name-master
+	aclocal
+	autoconf
+	automake -a
+	./configure
+	make
+	make DESTDIR=$PKG install
+}
