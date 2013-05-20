@@ -1,0 +1,25 @@
+# Description:	GPT disk partitioning tools
+# URL:		http://www.rodsbooks.com/gdisk/
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on:	ncurse popt icu-4c
+
+name=gptfdisk
+version=0.8.6
+release=1
+
+source=(http://www.rodsbooks.com/gdisk/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	make
+	install -d $PKG/usr/{sbin,man/man8}
+	install -m 755 gdisk $PKG/usr/sbin
+	install -m 644 gdisk.8 $PKG/usr/man/man8
+	install -m 755 cgdisk $PKG/usr/sbin
+	install -m 644 cgdisk.8 $PKG/usr/man/man8
+	install -m 755 sgdisk $PKG/usr/sbin
+	install -m 644 sgdisk.8 $PKG/usr/man/man8
+	install -m 755 fixparts $PKG/usr/sbin
+	install -m 644 fixparts.8 $PKG/usr/man/man8
+}
+
