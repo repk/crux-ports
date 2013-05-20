@@ -14,7 +14,7 @@ build() {
 	aclocal
 	autoconf
 	automake -a
-	./configure
+	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
 }

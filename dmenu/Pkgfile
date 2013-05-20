@@ -11,6 +11,7 @@ source=(http://dl.suckless.org/tools/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
+	sed -i "s|REFIX = /usr/local|REFIX = /usr|g" config.mk
 	make
 	make DESTDIR=$PKG install
 }

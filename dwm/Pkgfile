@@ -14,6 +14,7 @@ build() {
 	cd $name-$version
 	cp config.def.h config.h
 	patch -p1 < ${SRC}/dwm-config.patch
+	sed -i "s|PREFIX = /usr/local|PREFIX = /usr|g" config.mk
 	make
 	make DESTDIR=$PKG install
 }

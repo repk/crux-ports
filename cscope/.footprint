@@ -1,9 +1,8 @@
-drwxr-xr-x	repk/wheel	usr/
-drwxr-xr-x	repk/wheel	usr/local/
-drwxr-xr-x	repk/wheel	usr/local/bin/
--rwxr-xr-x	repk/wheel	usr/local/bin/cscope
--rwxr-xr-x	repk/wheel	usr/local/bin/ocs
-drwxr-xr-x	repk/wheel	usr/local/share/
-drwxr-xr-x	repk/wheel	usr/local/share/man/
-drwxr-xr-x	repk/wheel	usr/local/share/man/man1/
--rw-r--r--	repk/wheel	usr/local/share/man/man1/cscope.1.gz
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/cscope
+-rwxr-xr-x	root/root	usr/bin/ocs
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/man/
+drwxr-xr-x	root/root	usr/share/man/man1/
+-rw-r--r--	root/root	usr/share/man/man1/cscope.1.gz
