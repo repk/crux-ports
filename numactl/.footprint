@@ -1,25 +1,26 @@
-drwxr-xr-x	root/root	bin/
--rwxr-xr-x	root/root	bin/memhog
--rwxr-xr-x	root/root	bin/migratepages
--rwxr-xr-x	root/root	bin/migspeed
--rwxr-xr-x	root/root	bin/numactl
--rwxr-xr-x	root/root	bin/numademo
--rwxr-xr-x	root/root	bin/numastat (EMPTY)
-drwxr-xr-x	root/root	include/
--rw-r--r--	root/root	include/numa.h
--rw-r--r--	root/root	include/numacompat1.h
--rw-r--r--	root/root	include/numaif.h
-drwxr-xr-x	root/root	lib64/
--rw-r--r--	root/root	lib64/libnuma.a
-lrwxrwxrwx	root/root	lib64/libnuma.so -> libnuma.so.1
--rwxr-xr-x	root/root	lib64/libnuma.so.1
-drwxr-xr-x	root/root	share/
-drwxr-xr-x	root/root	share/man/
-drwxr-xr-x	root/root	share/man/man2/
-drwxr-xr-x	root/root	share/man/man3/
--rw-r--r--	root/root	share/man/man3/numa.3.gz
-drwxr-xr-x	root/root	share/man/man8/
--rw-r--r--	root/root	share/man/man8/migratepages.8.gz
--rw-r--r--	root/root	share/man/man8/migspeed.8.gz
--rw-r--r--	root/root	share/man/man8/numactl.8.gz
--rw-r--r--	root/root	share/man/man8/numastat.8.gz
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/memhog
+-rwxr-xr-x	root/root	usr/bin/migratepages
+-rwxr-xr-x	root/root	usr/bin/migspeed
+-rwxr-xr-x	root/root	usr/bin/numactl
+-rwxr-xr-x	root/root	usr/bin/numademo
+-rwxr-xr-x	root/root	usr/bin/numastat (EMPTY)
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/numa.h
+-rw-r--r--	root/root	usr/include/numacompat1.h
+-rw-r--r--	root/root	usr/include/numaif.h
+drwxr-xr-x	root/root	usr/lib64/
+-rw-r--r--	root/root	usr/lib64/libnuma.a
+lrwxrwxrwx	root/root	usr/lib64/libnuma.so -> libnuma.so.1
+-rwxr-xr-x	root/root	usr/lib64/libnuma.so.1
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/man/
+drwxr-xr-x	root/root	usr/share/man/man2/
+drwxr-xr-x	root/root	usr/share/man/man3/
+-rw-r--r--	root/root	usr/share/man/man3/numa.3.gz
+drwxr-xr-x	root/root	usr/share/man/man8/
+-rw-r--r--	root/root	usr/share/man/man8/migratepages.8.gz
+-rw-r--r--	root/root	usr/share/man/man8/migspeed.8.gz
+-rw-r--r--	root/root	usr/share/man/man8/numactl.8.gz
+-rw-r--r--	root/root	usr/share/man/man8/numastat.8.gz
