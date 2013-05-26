@@ -12,6 +12,6 @@ source=(ftp://oss.sgi.com/www/projects/libnuma/download/$name-$version.tar.gz)
 build() {
 	cd $name-$version
 	make
-	make PREFIX=$PKG install
+	make PREFIX=$PKG/usr install
 }
 
