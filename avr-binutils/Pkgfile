@@ -1,0 +1,27 @@
+# Description:	Avr binutils cross tools
+# URL:		http://www.gnu.org/software/binutils/
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on:
+
+name=avr-binutils
+version=2.23.2
+release=1
+
+source=(ftp://ftp.gnu.org/gnu/binutils/binutils-$version.tar.gz)
+
+build() {
+	cd binutils-$version
+	mkdir build
+	cd build
+	../configure --target=avr	\
+		--prefix=${PKG}/usr/avr	\
+		--disable-nsl		\
+		--enable-install-libbfd	\
+		--disable-werror
+	sed -i	-e 's/[^@]@colophon/@@colophon/' \
+		-e 's/[^@]@cygnus/@@cygnus.com/' \
+		../bfd/doc/bfd.texinfo
+	make
+	make install
+}
+
