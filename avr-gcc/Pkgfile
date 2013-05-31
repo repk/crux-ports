@@ -1,0 +1,26 @@
+# Description:	Avr gcc cross compiler
+# URL:		http://gcc.gnu.org/
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on: avr-binutils gmp mpfr mpc
+
+name=avr-gcc
+version=4.7.3
+release=1
+
+source=(ftp://ftp.lip6.fr/pub/gcc/releases/gcc-$version/gcc-$version.tar.gz)
+
+build() {
+	cd gcc-$version
+	mkdir build
+	cd build
+	unset CFLAGS
+	unset CXXFLAGS
+	export PATH=$PATH:/usr/avr/bin
+	../configure	--target=avr \
+			--prefix=${PKG}/usr/avr \
+			--disable-nsl \
+			--enable-languages=c \
+			--disable-libssp
+	make
+	make install
+}
