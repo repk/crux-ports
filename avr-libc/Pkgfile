@@ -1,0 +1,26 @@
+# Description:	Avr libc
+# URL:		http://www.nongnu.org/avr-libc/
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on: avr-binutils avr-gcc
+
+name=avr-libc
+version=1.8.0
+release=1
+
+source=(http://download.savannah.gnu.org/releases/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	mkdir build
+	cd build
+	unset CFLAGS
+	unset CXXFLAGS
+	export PATH=$PATH:/usr/avr/bin
+	export CC=avr-gcc
+	export STRIP=avr-strip
+	../configure	--build=`../config.guess` \
+			--host=avr \
+			--prefix=${PKG}/usr/avr
+	make
+	make install
+}
