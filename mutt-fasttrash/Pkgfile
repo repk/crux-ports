@@ -1,0 +1,40 @@
+# Description: Text-based email client that sucks less
+# URL:         http://www.mutt.org
+# Maintainer:  Juergen Daubert, jue at crux dot nu
+# Depends on:  gdbm ncurses openssl zlib
+
+name=mutt-fasttrash
+version=1.5.21
+release=2
+source=(ftp://ftp.mutt.org/mutt/devel/mutt-$version.tar.gz
+        mutt-$version-0e4f1782ea2e.patch
+	mutt-$version-trash_folder.patch
+	mutt-$version-fast_trash.patch)
+
+build () {
+    cd mutt-$version
+
+    patch -p0 -i $SRC/mutt-$version-0e4f1782ea2e.patch
+    patch -p1 -i $SRC/mutt-$version-trash_folder.patch
+    patch -p1 -i $SRC/mutt-$version-fast_trash.patch
+
+    ./configure --prefix=/usr \
+                --mandir=/usr/man \
+                --with-docdir=/usr/share/mutt \
+                --with-mailpath=/var/spool/mail \
+                --enable-pop \
+                --enable-imap \
+                --with-ssl \
+                --enable-hcache \
+                --disable-nls \
+                # --enable-smtp --with-sasl 
+
+    make
+    make DESTDIR=$PKG install
+
+    find $PKG/usr/share/mutt/* ! -name manual.txt -delete
+    rm $PKG/usr/etc/{Muttrc,mime.types}.dist 
+    rm $PKG/usr/bin/{flea,muttbug}
+    rm $PKG/usr/man/man1/{flea.1,muttbug.1}
+    rm $PKG/usr/man/man5/{mmdf.5,mbox.5}
+}
