@@ -1,0 +1,18 @@
+# Description:	BitTorrent library written in C++
+# URL:		http://libtorrent.rakshasa.no/
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on:   libsigc++
+
+name=libtorrent
+version=0.13.2
+release=1
+
+source=(http://libtorrent.rakshasa.no/downloads/${name}-${version}.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
+
