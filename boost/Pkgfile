@@ -1,0 +1,35 @@
+# Description:	Set of libraries for the C++ programming language
+# URL:		http://www.boost.org/
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on:   expat icu python
+
+name=boost
+version=1.55.0
+release=1
+
+source=(http://downloads.sourceforge.net/project/$name/$name/$version/boost_1_55_0.tar.gz)
+
+build() {
+	cd boost_1_55_0
+	./bootstrap.sh
+
+	local JOBS="$(sed -e 's/.*\(-j *[0-9]\+\).*/\1/' <<< $MAKEFLAGS)"
+
+	./bjam \
+		$JOBS -q -d 2 \
+		release \
+		threading=single,multi \
+		runtime-link=shared \
+		link=shared,static \
+		debug-symbols=off \
+		--toolset=gcc \
+		--layout=tagged \
+		--prefix=$PKG/usr \
+		-sHAVE_ICU=1 \
+		-sEXPAT_INCLUDE=/usr/include \
+		-sEXPAT_LIBPATH=/usr/lib \
+		install
+
+	find $PKG -name '*.egg-info' | xargs rm -rf
+}
+

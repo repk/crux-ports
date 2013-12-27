@@ -1,0 +1,29 @@
+# Description:	Set of tools to create, alter and inspect Matroska files
+# URL:		http://www.bunkus.org/videotools/mkvtoolnix/index.html
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on:   expat libogg libvorbis zlib boost ruby libflac
+
+name=mkvtoolnix
+version=6.6.0
+release=1
+
+source=(http://www.bunkus.org/videotools/$name/sources/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	local JOBS=$(awk 'BEGIN{RS="-j|--jobs="} NR==2 {print $1}' <<< $MAKEFLAGS)
+	test -n "$JOBS" && export JOBS="-j $JOBS"
+
+	./configure --prefix=/usr --mandir=/usr/man \
+		--disable-precompiled-headers
+
+	[ "$CXX" ] || CXX=g++
+	./drake $JOBS CXX="$CXX"
+	./drake $JOBS DESTDIR=$PKG install
+
+	rm -r $PKG/usr/man/{de,uk,ja,nl,zh_CN} $PKG/usr/share/locale
+
+	rm -rf $PKG/usr/share/doc
+	find $PKG/usr/share -depth -empty -delete
+}
