@@ -1,0 +1,18 @@
+# Description:	Message Handling System
+# URL:		http://www.nongnu.org/nmh/
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on: openssl
+
+name=nmh
+version=1.5
+release=1
+
+source=(http://download.savannah.gnu.org/releases/${name}/${name}-${version}.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --with-tls --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
+
