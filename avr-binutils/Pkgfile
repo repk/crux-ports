@@ -10,6 +10,7 @@ release=1
 source=(ftp://ftp.gnu.org/gnu/binutils/binutils-$version.tar.gz)
 
 build() {
+	sed -i '/^SUBDIRS/s/doc//' binutils-$version/bfd/Makefile.in
 	cd binutils-$version
 	mkdir build
 	cd build

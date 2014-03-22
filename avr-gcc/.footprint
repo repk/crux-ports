@@ -273,12 +273,6 @@ drwxr-xr-x	root/root	usr/avr/libexec/gcc/avr/4.7.3/plugin/
 -rwxr-xr-x	root/root	usr/avr/libexec/gcc/avr/4.7.3/plugin/gengtype
 drwxr-xr-x	root/root	usr/avr/share/
 drwxr-xr-x	root/root	usr/avr/share/info/
--rw-r--r--	root/root	usr/avr/share/info/cpp.info
--rw-r--r--	root/root	usr/avr/share/info/cppinternals.info
--rw-r--r--	root/root	usr/avr/share/info/dir
--rw-r--r--	root/root	usr/avr/share/info/gcc.info
--rw-r--r--	root/root	usr/avr/share/info/gccinstall.info
--rw-r--r--	root/root	usr/avr/share/info/gccint.info
 -rw-r--r--	root/root	usr/avr/share/info/libquadmath.info
 drwxr-xr-x	root/root	usr/avr/share/locale/
 drwxr-xr-x	root/root	usr/avr/share/locale/be/

@@ -120,10 +120,8 @@ drwxr-xr-x	root/root	usr/avr/lib/
 drwxr-xr-x	root/root	usr/avr/share/
 drwxr-xr-x	root/root	usr/avr/share/info/
 -rw-r--r--	root/root	usr/avr/share/info/as.info
--rw-r--r--	root/root	usr/avr/share/info/bfd.info
 -rw-r--r--	root/root	usr/avr/share/info/binutils.info
 -rw-r--r--	root/root	usr/avr/share/info/configure.info
--rw-r--r--	root/root	usr/avr/share/info/dir
 -rw-r--r--	root/root	usr/avr/share/info/gprof.info
 -rw-r--r--	root/root	usr/avr/share/info/ld.info
 -rw-r--r--	root/root	usr/avr/share/info/standards.info
