@@ -1,0 +1,2 @@
+usr/avr/.*\.a$
+usr/avr/.*\.o$
