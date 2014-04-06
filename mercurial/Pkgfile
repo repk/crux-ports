@@ -1,0 +1,16 @@
+# Description:	Distributed source control management tool
+# URL:		http://mercurial.selenic.com/
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on:
+
+name=mercurial
+version=2.9.2
+release=1
+
+source=(http://mercurial.selenic.com/release/${name}-${version}.tar.gz)
+
+build() {
+	cd ${name}-$version
+	python setup.py build
+	python setup.py install --root $PKG
+}
