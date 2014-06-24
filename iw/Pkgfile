@@ -1,0 +1,17 @@
+# Description: CLI configuration utility for wireless devices
+# URL: http://wireless.kernel.org/
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on: libnl
+
+name=iw
+version=3.15
+release=1
+
+source=(https://kernel.org/pub/software/network/${name}/${name}-${version}.tar.xz)
+
+build() {
+	cd $name-$version
+	make
+	make DESTDIR=$PKG install
+}
+
