@@ -1,0 +1,18 @@
+# Description: tool for tunneling SSH through HTTP proxies
+# URL: http://www.agroman.net/corkscrew/
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on: 
+
+name=corkscrew
+version=2.0
+release=1
+
+source=(http://www.agroman.net/${name}/${name}-${version}.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
+
