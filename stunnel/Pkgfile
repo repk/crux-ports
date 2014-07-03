@@ -1,0 +1,19 @@
+# Description:	SSL encryption wrapper
+# URL:		https://www.stunnel.org/index.html
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on:
+
+name=stunnel
+version=5.02
+release=1
+
+source=(https://www.stunnel.org/downloads/${name}-${version}.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var
+	make
+	make DESTDIR=$PKG install
+}
+
