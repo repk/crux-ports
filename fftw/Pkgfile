@@ -1,0 +1,21 @@
+# Description:	C subroutine library for computing the discrete Fourier
+#		transform
+# URL:		http://www.fftw.org/
+# Maintainer:	Remi Pommarel, repk at triplefau dot lt
+# Depends on:
+
+name=fftw
+version=3.3.4
+release=1
+
+source=(http://www.fftw.org/${name}-${version}.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr --enable-threads --enable-float	\
+		--enable-shared
+	make
+	make DESTDIR=${PKG} install
+}
+
